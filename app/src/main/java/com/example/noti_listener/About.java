@@ -1,32 +1,43 @@
 package com.example.noti_listener;
 
+import android.graphics.Bitmap;
 import android.os.Parcelable;
 
 import android.os.Parcel;
 
 public class About implements Parcelable{
-    private int mAppicon;
+    private Bitmap mbitmap;
     private String mTitle;
     private String mAbout;
+    private String mName;
 
-    public About(int mAppicon, String mTitle, String mAbout){
+    public About(Bitmap mbitmap, String mTitle, String mAbout, String mName){
         this.mAbout=mAbout;
-        this.mAppicon=mAppicon;
+        this.mbitmap=mbitmap;
+        this.mName=mName;
         this.mTitle=mTitle;
     }
 
-    public Integer getmAppicon(){
-        return mAppicon;
+    public Bitmap getmBitmap(){
+        return mbitmap;
     }
     public String getmTitle(){
         return mTitle;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public void setMbitmap(Bitmap mbitmap) {
+        this.mbitmap = mbitmap;
     }
 
     public String getmAbout() {
         return mAbout;
     }
     protected About(Parcel in) {
-        mAppicon = in.readInt();
+        mName=in.readString();
         mTitle = in.readString();
         mAbout = in.readString();
     }
@@ -38,7 +49,7 @@ public class About implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(mAppicon);
+        dest.writeString(mName);
         dest.writeString(mTitle);
         dest.writeString(mAbout);
     }
@@ -55,4 +66,8 @@ public class About implements Parcelable{
             return new About[size];
         }
     };
+
+    public void setmBitmap(Bitmap mbitmap) {
+        this.mbitmap = mbitmap;
+    }
 }

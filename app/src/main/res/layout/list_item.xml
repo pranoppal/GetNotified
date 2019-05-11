@@ -5,22 +5,33 @@
 
     <ImageView
         android:id="@+id/imageView_appicon"
-        android:layout_width="50dp"
+        android:layout_width="75dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_launcher_background"
-        android:layout_height="50dp"/>
+        android:layout_height="75dp"/>
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView_appicon"
+        android:layout_margin="3dp"
+        android:text="App Name"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView_appicon"
-        android:layout_marginTop="5dp"
+        android:layout_below="@id/textView_name"
+        android:layout_margin="3dp"
         android:text="Title"
         android:textColor="#ffffff"
         android:layout_marginLeft="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView_about"
@@ -28,11 +39,11 @@
         android:text="About"
         android:textColor="#ffffff"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView_appicon"
         android:layout_below="@id/textView_title"
-        android:layout_margin="5dp"
+        android:layout_margin="3dp"
         android:textSize="20sp"/>
+
 
 </RelativeLayout>

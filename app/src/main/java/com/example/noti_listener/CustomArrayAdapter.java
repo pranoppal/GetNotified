@@ -38,7 +38,7 @@ public class CustomArrayAdapter extends ArrayAdapter<About> {
         listItem.setBackgroundColor(Color.BLACK);
 
         ImageView imageView=(ImageView)listItem.findViewById(R.id.imageView_appicon);
-        imageView.setImageResource(about.getmAppicon());
+        imageView.setImageBitmap(about.getmBitmap());
 
 
         TextView titleview=(TextView)listItem.findViewById(R.id.textView_title);
@@ -47,6 +47,9 @@ public class CustomArrayAdapter extends ArrayAdapter<About> {
 
         TextView aboutView=(TextView)listItem.findViewById(R.id.textView_about);
         aboutView.setText(about.getmAbout());
+
+        TextView nameView=(TextView)listItem.findViewById(R.id.textView_name);
+        nameView.setText(about.getmName());
 
         return listItem;
     }

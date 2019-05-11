@@ -5,6 +5,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +20,7 @@ public class MainActivity extends Activity {
     private NotificationReceiver nReceiver;
     ArrayList<About> aboutArrayList=new ArrayList<>();
     Context mcontext;
+    Bitmap btmp = null;
     ListView listView;
     CustomArrayAdapter pcustomArrayAdapter;
 
@@ -59,7 +62,12 @@ public class MainActivity extends Activity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            aboutArrayList = intent.getParcelableArrayListExtra("ImpArraylist");
+            if(intent.getParcelableArrayListExtra("ImpArraylist")!=null)
+                aboutArrayList = intent.getParcelableArrayListExtra("ImpArraylist");
+            /*byte[] byteArray =intent.getByteArrayExtra("icon");
+            if(byteArray !=null) {
+                btmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            }*/
             Log.i(TAGm,"broadcast recieved"+ aboutArrayList);
             pcustomArrayAdapter=new CustomArrayAdapter(mcontext,aboutArrayList);
             listView.setAdapter(pcustomArrayAdapter);
