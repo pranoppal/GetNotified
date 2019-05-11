@@ -1,6 +1,7 @@
 package com.example.noti_listener;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,8 @@ public class CustomArrayAdapter extends ArrayAdapter<About> {
             listItem= LayoutInflater.from(mcontext).inflate(R.layout.list_item,parent,false);
         }
         About about=notiList.get(position);
+
+        listItem.setBackgroundColor(Color.BLACK);
 
         ImageView imageView=(ImageView)listItem.findViewById(R.id.imageView_appicon);
         imageView.setImageResource(about.getmAppicon());
